@@ -46,6 +46,7 @@ Plug 'othree/yajs.vim'
 "Plug 'valloric/youcompleteme'
 Plug 'morhetz/gruvbox'
 
+Plug 'vim-airline/vim-airline'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -72,12 +73,15 @@ map <Leader>n :NERDTreeToggle<CR>
 map s <Plug>(easymotion-s2)
 
 "" fzf.vim
-nmap <leader><tab> :Files<CR>
-xmap <leader><tab> :Files<CR>
-omap <leader><tab> :Files<CR>
+nmap <silent> <leader><tab> :Files<CR>
+nnoremap <silent> <leader>. :Lines<CR>
+
 
 "" rainbow.vim
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+
+"" vim-airline
+let g:airline#extensions#tabline#enabled = 1
 
 "" color scheme
 colorscheme gruvbox
@@ -93,6 +97,9 @@ set bg=dark
 nnoremap <Leader>w :w<CR> " Save with <Leader>w
 nnoremap = <C-^> " Switch back and forth between two files with equals key
 
+nnoremap <Leader>[ :bp<CR> " Previous file in buffer
+nnoremap <Leader>] :bn<CR> " Next file in buffer
+
 """" END Hotkeys
 
 
@@ -104,4 +111,18 @@ nnoremap = <C-^> " Switch back and forth between two files with equals key
 autocmd BufNewFile,BufRead *.es6 set filetype=javascript
 
 """ END Filetypes
+
+
+
+""" Don't ring bells in terminal when using vim
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
 
