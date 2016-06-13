@@ -1,3 +1,6 @@
+" This .vimrc has the following system dependencies:
+" - the_silver_searcher (Ag)
+
 " Leader
 let mapleader="\<Space>"
 
@@ -27,24 +30,29 @@ set shiftround
 set expandtab
 
 """ BEGIN: Plugin installation
+
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree' " NERDTree: Traditional-style file navigation pane
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
-Plug 'luochen1990/rainbow'
 
-Plug 'tpope/vim-rails'
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-endwise'
+Plug 'easymotion/vim-easymotion' " Easymotion 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy file finder
+Plug 'junegunn/fzf.vim' " Fuzzy file finder
+Plug 'rking/ag.vim' " Silver searcher: grep replacement
 
-Plug 'easymotion/vim-easymotion'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Syntax improvement
+Plug 'vim-ruby/vim-ruby' " 
+Plug 'othree/yajs.vim' " Javascript syntax
+Plug 'tpope/vim-endwise' " syntax improvement for ruby begin/end etc
+Plug 'luochen1990/rainbow' " In HTML files, color lines based on their nesting level
 
-Plug 'othree/yajs.vim'
-"Plug 'valloric/youcompleteme'
-Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-rails' " Rails helpers
+
+" Plug 'valloric/youcompleteme' " Autocomplete
+
+Plug 'morhetz/gruvbox' " Color scheme
 
 Plug 'vim-airline/vim-airline'
 
@@ -59,6 +67,7 @@ call plug#end()
 " :so %
 " :PlugInstall
 " :PlugUpdate
+"
 """" END: Plugin installation
 
 
@@ -99,6 +108,8 @@ nnoremap = <C-^> " Switch back and forth between two files with equals key
 
 nnoremap <Leader>[ :bp<CR> " Previous file in buffer
 nnoremap <Leader>] :bn<CR> " Next file in buffer
+
+nnoremap <Leader>e <C-w>w " Switch to next window
 
 """" END Hotkeys
 
