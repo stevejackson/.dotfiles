@@ -1,6 +1,9 @@
 " This .vimrc has the following system dependencies:
 " - the_silver_searcher (Ag)
 
+"let g:python_host_prog = '/usr/local/bin/python'
+"let g:python3_host_prog = '/usr/local/bin/python3'
+
 " Leader
 let mapleader="\<Space>"
 
@@ -50,7 +53,7 @@ Plug 'luochen1990/rainbow' " In HTML files, color lines based on their nesting l
 
 Plug 'tpope/vim-rails' " Rails helpers
 
-" Plug 'valloric/youcompleteme' " Autocomplete
+"Plug 'valloric/youcompleteme' " Autocomplete
 
 Plug 'morhetz/gruvbox' " Color scheme
 
